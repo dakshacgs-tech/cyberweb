@@ -1,0 +1,10 @@
+START HERE - NEW AI WORKER INTEGRATION
+1. Import only database/ai_worker_upgrade.sql into the existing cyberweb database.
+2. Open PowerShell (normal user, not administrator).
+3. Confirm: codex.cmd login status
+4. Create a pending request from My Projects -> AI Designs.
+5. Run:
+   cd C:\xampp\htdocs\cyberweb-dashboard
+   C:\xampp\php\php.exe .\ai\worker.php
+6. Refresh the AI Designs page for all 4 generated ZIPs.
+Read ai/README-WINDOWS-CODEX.txt for more details and limitations.

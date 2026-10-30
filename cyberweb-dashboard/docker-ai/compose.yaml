@@ -1,0 +1,17 @@
+services:
+  codex-worker:
+    build:
+      context: .
+    container_name: cyberweb-codex
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./workspace:/workspace
+      - codex_auth:/root/.codex
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    # No ports, MySQL access, or XAMPP project mounts by default.
+volumes:
+  codex_auth:

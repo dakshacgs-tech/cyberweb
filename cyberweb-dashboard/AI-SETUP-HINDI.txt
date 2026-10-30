@@ -1,0 +1,15 @@
+CYBERWEB AI 4-DESIGN WORKFLOW — SETUP
+
+1. Back up your existing cyberweb folder and database. Extract this ZIP under C:\xampp\htdocs\ (avoid nested cyberweb-dashboard folders).
+2. In phpMyAdmin select EXISTING cyberweb database and import database/ai_designs.sql ONLY. It adds 3 new tables, does not replace your existing data.
+3. Open http://localhost/cyberweb-dashboard/login.php and log in.
+4. Open My Projects > AI Designs for the desired project. Hotel Details should already be saved.
+5. Click Create new AI request. New request ID, saved JSON and system prompt appear.
+6. Connect an AUTHORIZED external AI executor separately. This PHP code does NOT login to a ChatGPT web account and does not automatically call AI, since ChatGPT subscription/MCP is not an arbitrary PHP inference API. Provide the saved input, image/logo asset bytes and system prompt to your authorized executor.
+7. Create four actual site ZIPs (index.html at root) in the authorized workflow. Import designs 1,2,3,4 for the same job.
+8. Once all 4 designs imported, you may Select one design and download ZIPs. Downloads are recorded in ai_design_downloads. The selected design is recorded in ai_generated_designs.selected_at.
+9. ZIP assets are in storage/ai_zips, deny direct HTTP access via .htaccess; download endpoint checks logged-in project owner.
+10. ZipArchive PHP extension must be enabled. Set upload_max_filesize >=25M and post_max_size >=30M in php.ini if needed.
+11. GitHub push not completed: requires repository URL and authorized GitHub connection. Do not upload database exports with real data or credentials to public GitHub.
+
+Important: Existing gallery uploads are not identified as logos in SQL; logo colors cannot be reliably derived until a separate logo file/color input is provided to the authorized executor.

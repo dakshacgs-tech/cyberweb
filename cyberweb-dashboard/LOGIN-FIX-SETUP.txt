@@ -1,0 +1,14 @@
+CYBERWEB LOGIN REDIRECT FIX
+
+1. Back up your current C:\xampp\htdocs\cyberweb-dashboard folder.
+2. Copy the extracted cyberweb-dashboard files into that folder.
+3. In phpMyAdmin select database `cyberweb`, import database/active_sessions.sql.
+4. Confirm `users` table exists with email and bcrypt password hashes.
+5. Start Apache and MySQL, visit http://localhost/cyberweb-dashboard/login.php .
+6. Sign in with your existing registered credentials. The admin username alias maps to admin@cyberweb.local.
+7. Successful login opens index.php, logout clears session and releases a slot.
+8. At most 10 simultaneous sessions. Idle entries expire after 30 minutes; browser closing alone does not immediately release a slot.
+
+REPAIRS: login_process.php was only a fragment without credential verification or redirect; session_capacity.php was empty; index.php lacked require_login guard; logout.php did not destroy sessions. All fixed without CSS/JS/layout changes.
+
+NOTE: Runtime database/browser integration testing requires your local XAMPP environment. Do not import the SQL into another database.

@@ -1,0 +1,6 @@
+workspace/*
+!workspace/.gitkeep
+.env
+*.log
+auth.json
+.codex/

@@ -1,0 +1,7 @@
+
+# Generated sensitive workspaces and output
+/docker-ai/workspace/ai-jobs/
+/storage/ai_zips/
+/storage/gallery/
+/.env
+**/auth.json
